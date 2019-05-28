@@ -3,6 +3,10 @@
 
 #include "Artifact.h"
 
+#include <cassert>
+#include <vector>
+#include <algorithm>
+
 class BackPack
 {
 public:
@@ -11,7 +15,14 @@ public:
 
 	//Functions for interactions with backpack
 	void addArtifact(const Artifact&);
+	void emptyBackPack();
+	void emptyBackPack(bool);
+	//                 index
+	void deleteArtifact(int);
+	void deleteUselessArtifacts(std::vector<int>&);
 	void printBackPack() const;
+	//                 index
+	Artifact getArtifact(int);
 
 private:
 	Artifact** m_backpack;
