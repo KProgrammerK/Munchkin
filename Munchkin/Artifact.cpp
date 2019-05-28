@@ -9,7 +9,7 @@ Artifact::Artifact(std::string name, int buff, char sign) :
 const Artifact Artifact::artifactsTable[static_cast<int>(Artifact::ArtifactType::MAX_ARTIFACT_TYPE)]
 {
 	//  Name          BF   S
-	{"Sword Guds"   , 10, 'D'},
+    {"Sword Guds"   , 10, 'D'},
     {"Viking Helmet", 10, 'A'},
     {"Cut Dragon"   , 10, 'H'}
 };
