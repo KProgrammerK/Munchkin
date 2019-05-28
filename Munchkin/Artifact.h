@@ -19,7 +19,7 @@ public:
 	};
 
 	//          Name       B     S
-	Artifact(std::string, int, char);
+	Artifact(std::string = "", int = 0, char = ' ');
 
 	// This is lookup table informations about artifacts
 	static const Artifact artifactsTable[];
@@ -31,7 +31,7 @@ public:
 
 	static Artifact getRandomArtifact();
 
-	void printArtifact() const;
+	friend std::ostream& operator<<(std::ostream&, const Artifact&);
 
 private:
 	std::string m_name;

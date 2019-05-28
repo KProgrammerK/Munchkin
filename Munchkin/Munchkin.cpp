@@ -1,13 +1,14 @@
+#include "BackPack.h"
 #include "Artifact.h"
 
 int main()
 {
-	srand(static_cast<unsigned int>(time(0)));
-	rand();
+	BackPack backpack;
 
-	Artifact artifact{ Artifact::getRandomArtifact() };
+	for (int cell = 0; cell < 10; ++cell)
+		backpack.addArtifact(Artifact::getRandomArtifact());
 
-	artifact.printArtifact();
+	backpack.printBackPack();
 
 	return 0;
 }

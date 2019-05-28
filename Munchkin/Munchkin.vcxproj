@@ -124,12 +124,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Artifact.cpp" />
+    <ClCompile Include="BackPack.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Munchkin.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artifact.h" />
+    <ClInclude Include="BackPack.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="RandomNumber.h" />
   </ItemGroup>
