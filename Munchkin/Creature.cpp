@@ -1,0 +1,27 @@
+#include "Creature.h"
+
+// Standard constructor
+Creature::Creature(std::string name, int health,int armor, int damage, int gold) :
+	m_name  { name   },
+	m_health{ health },
+	m_armor { armor  },
+	m_damage{ damage },
+	m_gold  { gold   } {}
+
+// Functions getters informations
+std::string  Creature::getName  () const { return m_name  ; }
+int          Creature::getHealth() const { return m_health; }
+int          Creature::getArmor () const { return m_armor ; }
+int          Creature::getDamage() const { return m_damage; }
+int          Creature::getGold  () const { return m_gold  ; }
+
+// 1 unit armor blocks 0.25 unit damage
+void Creature::reduceHealth(int damage)
+{
+	int lockedDamage = getArmor() * 0.25;
+	int cleanDamage  = damage - lockedDamage;
+	m_health -= cleanDamage;
+}
+
+// If health of creature <= 0 return true
+bool Creature::isDead() const { return m_health <= 0; }
