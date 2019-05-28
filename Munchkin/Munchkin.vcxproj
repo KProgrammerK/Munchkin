@@ -123,10 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Artifact.cpp" />
     <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="Munchkin.cpp" />
+    <ClCompile Include="RandomNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Artifact.h" />
     <ClInclude Include="Creature.h" />
+    <ClInclude Include="RandomNumber.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

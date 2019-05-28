@@ -18,9 +18,24 @@
     <ClCompile Include="Creature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Artifact.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomNumber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Munchkin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Creature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Artifact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNumber.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
