@@ -47,3 +47,5 @@ void Equipment::addCell()
 
 	++m_cell_equipment; 
 }
+
+Artifact& Equipment::getArtifact(Equipment::EquipmentType type) const { return *m_equipment[static_cast<int>(type)]; }

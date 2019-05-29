@@ -24,17 +24,20 @@ public:
 	//          Name       B     S
 	Artifact(std::string = "", int = 0, char = ' ');
 
-	// This is lookup table informations about artifacts
+	// This is lookup table about artifacts
 	static const Artifact artifactsTable[];
 
-	//Functions getters informations
+	// Functions getters informations
 	std::string getName() const;
 	int         getBuff() const;
 	char        getSign() const;
 
 	static Artifact getRandomArtifact();
 
+	// Output informations about artifact
+	// For BackPack and Equipment
 	friend std::ostream& operator<<(std::ostream&, const Artifact&);
+	// For function warning in class Player
 	void printArtifact() const;
 
 private:

@@ -28,6 +28,6 @@ bool Creature::isDead() const { return m_health <= 0; }
 
 void Creature::printInformations() const
 {
-	std::cout << "Name:" << m_name << ", Health:" << m_health << ", Armor:" << m_armor
-		<< ", Damage:" << m_damage << ", Gold:" << m_gold;
+	std::cout << "Name:" << m_name << "  Health:" << m_health << "  Armor:" << m_armor
+		<< "  Damage:" << m_damage << "  Gold:" << m_gold;
 }

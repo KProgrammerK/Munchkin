@@ -127,6 +127,7 @@
     <ClCompile Include="BackPack.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Munchkin.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="BackPack.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RandomNumber.h" />
   </ItemGroup>

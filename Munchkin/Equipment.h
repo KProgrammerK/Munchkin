@@ -17,12 +17,14 @@ public:
 	 Equipment();
 	~Equipment();
 
+	//Functions for work with cell of equipment
 	bool busyCell(EquipmentType) const;
-	void addArtifact(EquipmentType,Artifact&);
-	void showEquipment() const;
 	void addCell();
 
-	Artifact& getArtifact(EquipmentType type) const { return *m_equipment[static_cast<int>(type)]; }
+	void addArtifact(EquipmentType,Artifact&);
+	void showEquipment() const;
+
+	Artifact& getArtifact(EquipmentType type) const;
 	
 private:
 	Artifact** m_equipment;

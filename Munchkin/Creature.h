@@ -7,8 +7,8 @@
 class Creature
 {
 public:
-	//          Name       H    A    D    G
-	Creature(std::string, int, int, int, int);
+	//          Name            H        A        D        G
+	Creature(std::string = "", int = 0, int = 0, int = 0, int = 0);
 
 	//Functions getters informations
 	std::string getName  () const;

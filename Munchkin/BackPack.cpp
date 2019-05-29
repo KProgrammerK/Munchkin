@@ -47,6 +47,7 @@ void BackPack::emptyBackPack(bool)
 		*m_backpack[cell] = Artifact{};
 
 }
+
 void BackPack::deleteArtifact(int index)
 {
 	if (index < 0 || index >= m_cell_backpack)
@@ -85,6 +86,12 @@ void BackPack::deleteUselessArtifacts(std::vector<int>& v)
 {
 	std::sort(v.begin(), v.end());
 	std::reverse(v.begin(), v.end());
+
+	if (v.size() == m_cell_backpack || v[0] == 11)
+	{
+		emptyBackPack();
+		return;
+	}
 
 	for (size_t cell = 0; cell < v.size(); ++cell)
 		deleteArtifact(--v[cell]);
