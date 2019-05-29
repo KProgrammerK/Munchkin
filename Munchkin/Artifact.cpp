@@ -11,8 +11,11 @@ const Artifact Artifact::artifactsTable[static_cast<int>(Artifact::ArtifactType:
 {
 	//  Name          BF   S
     {"Sword Guds"   , 10, 'D'},
+    {"Sword Fire"   , 20, 'D'},
     {"Viking Helmet", 10, 'A'},
-    {"Cut Dragon"   , 10, 'H'}
+    {"Fire Helmet"  , 20, 'A'},
+    {"Cut Dragon"   , 10, 'H'},
+    {"Fire armor"   , 20, 'H'}
 };
 
 //Functions getters informations
@@ -24,6 +27,11 @@ std::ostream& operator<<(std::ostream& out, const Artifact& artifact)
 {
 	out << "Name:" << artifact.getName() << " \t Buff:" << artifact.getBuff() << "  Sign:" << artifact.getSign();
 	return out;
+}
+
+void Artifact::printArtifact() const
+{
+	std::cout << "Name:" << getName() << " Buff:" << getBuff() << "  Sign:" << getSign() << '\n';
 }
 
 Artifact Artifact::getRandomArtifact()

@@ -13,8 +13,11 @@ public:
 	enum class ArtifactType
 	{
 		SWORD_GUDS,
+		SWORD_FIRE,
 		VIKING_HELMET,
+		FIRE_HELMET,
 		CUT_DRAGON,
+		FIRE_ARMOR,
 		MAX_ARTIFACT_TYPE
 	};
 
@@ -32,6 +35,7 @@ public:
 	static Artifact getRandomArtifact();
 
 	friend std::ostream& operator<<(std::ostream&, const Artifact&);
+	void printArtifact() const;
 
 private:
 	std::string m_name;

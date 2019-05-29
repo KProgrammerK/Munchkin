@@ -92,6 +92,8 @@ void BackPack::deleteUselessArtifacts(std::vector<int>& v)
 
 Artifact BackPack::getArtifact(int index)
 {
+	--index;
+
 	if (index < 0 || index >= m_cell_backpack)
 	{
 		std::cout << "You entered incorrect index [" << index << "]\n";

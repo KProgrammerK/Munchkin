@@ -2,6 +2,7 @@
 #define CREATURE_H
 
 #include <string>
+#include <iostream>
 
 class Creature
 {
@@ -19,6 +20,8 @@ public:
 	//                 D
 	void reduceHealth(int);
 	bool isDead() const;
+
+	void printInformations() const;
 
 protected:
 	int m_health;

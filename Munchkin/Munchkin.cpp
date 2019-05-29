@@ -1,8 +1,6 @@
-#include "BackPack.h"
+#include "Player.h"
 
 int main()
 {
-	BackPack backpack;
-
  	return 0;
 }
