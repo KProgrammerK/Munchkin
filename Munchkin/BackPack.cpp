@@ -15,12 +15,11 @@ BackPack::~BackPack() { delete[] m_backpack; }
 
 void BackPack::addArtifact(const Artifact& artifact)
 {
-	if(m_backpack)
 	*m_backpack[m_cell_backpack] = artifact;
 	++m_cell_backpack;
 }
 
-void BackPack::printBackPack() const
+void BackPack::showBackPack() const
 {
 	if (m_cell_backpack == 0)
 	{
@@ -113,3 +112,5 @@ Artifact BackPack::getArtifact(int index)
 
 	return artifact;
 }
+
+int BackPack::getSize() const { return m_cell_backpack; }

@@ -24,8 +24,8 @@ public:
 	void deleteArtifact(int);
 	void deleteUselessArtifacts(std::vector<int>&);
 
-	void printBackPack() const;
-
+	void showBackPack() const;
+	int getSize() const;
 	//                 index
 	// When artifact gets from backpack 
 	// it deletes right away so return by value

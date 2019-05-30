@@ -153,6 +153,17 @@ void Player::addEquipment(Artifact artifact)
 	}
 }
 
+//When player kills monster
+void Player::addGold(int gold) { m_gold += gold; }
+void Player::levelUp()
+{
+	++m_armor;
+	++m_damage;
+	++m_health;
+	++m_killings;
+	++m_level;
+}
+
 //There are functions getting access to things of player
 BackPack*  Player::openBackPack () const { return m_backpack ; }
 Equipment* Player::openEquipment() const { return m_equipment; }

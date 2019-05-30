@@ -41,6 +41,10 @@ public:
 	//(permission to swap artifacts)
 	char warning(std::string);
 
+	// When player kills monster
+	void levelUp();
+	void addGold(int);
+
 	//There are functions getting access to things of player
 	BackPack*  openBackPack () const;
 	Equipment* openEquipment() const;
