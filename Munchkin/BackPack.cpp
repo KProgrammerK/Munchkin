@@ -29,7 +29,7 @@ void BackPack::showBackPack() const
 
 	std::cout << "In your backpack:\n";
 	for (int cell = 0; cell < m_cell_backpack; ++cell)
-		std::cout << *m_backpack[cell] << "  [" << cell+1 << "]\n";
+		std::cout << *m_backpack[cell] << " \t[" << cell+1 << "]\n";
 }
 
 void BackPack::emptyBackPack()

@@ -5,6 +5,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class Artifact
 {
@@ -12,12 +13,15 @@ public:
 
 	enum class ArtifactType
 	{
-		SWORD_GUDS,
-		SWORD_FIRE,
 		VIKING_HELMET,
 		FIRE_HELMET,
+		IRON_CROWN,
+		WOODEN_ARMOR,
+		IRON_ARMOR,
 		CUT_DRAGON,
-		FIRE_ARMOR,
+		SWORD_FIRE,
+		SWORD_GUDS,
+		SCEPTER_LOKI,
 		MAX_ARTIFACT_TYPE
 	};
 
@@ -32,6 +36,7 @@ public:
 	int         getBuff() const;
 	char        getSign() const;
 
+	// Get random type and get informations about artifact from table by type of artifact
 	static Artifact getRandomArtifact();
 
 	// Output informations about artifact

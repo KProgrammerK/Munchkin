@@ -5,6 +5,8 @@
 #include "Equipment.h"
 #include "Creature.h"
 
+#include <fstream>
+
 class Player : public Creature
 {
 public:
@@ -18,6 +20,7 @@ public:
 	int getKillings() const;
 	bool isWon() const;
 
+	void reduceGold(int);
 	void addEquipment(Artifact);
 
 	/* Player improves when artifact adds

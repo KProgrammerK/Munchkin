@@ -12,6 +12,10 @@ Player::Player(std::string name) :
 
 Player::~Player()
 {
+	std::ofstream file{ "MunchkinResult.txt",std::ios::app };
+	file << "Name:" << getName() << "  Level:" << getLevel() << "  Gold:" << getGold() << "  Killings:" << getKillings() << '\n';
+	file.close();
+
 	delete m_backpack;
 	delete m_equipment;
 }
@@ -20,11 +24,17 @@ char Player::warning(std::string item)
 {
 	std::cout << "You already have: " << item << "   ->   ";
 	if (item == "helmet")
-		openEquipment()->getArtifact(Equipment::EquipmentType::HEAD).printArtifact();
+	{
+		openEquipment()->getArtifact(Equipment::EquipmentType::HEAD).printArtifact(); std::cout << '\n';
+	}
 	else if (item == "armor")
-		openEquipment()->getArtifact(Equipment::EquipmentType::BODY).printArtifact();
+	{
+		openEquipment()->getArtifact(Equipment::EquipmentType::BODY).printArtifact(); std::cout << '\n';
+	}
 	else if (item == "weapon")
-		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact();
+	{
+		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact(); std::cout << '\n';
+	}
 
 	char answer;
 	do
@@ -44,7 +54,7 @@ char Player::warning(std::string item)
 void Player::printInformations() const
 {
 	Creature::printInformations();
-	std::cout << ", Level:" << m_level << ", Killings:" << m_killings << '\n';
+	std::cout << ", Level:" << m_level << '\n';
 }
 
 int  Player::getLevel   () const { return m_level;       }
@@ -162,9 +172,11 @@ void Player::levelUp()
 	++m_health;
 	++m_killings;
 	++m_level;
+	m_gold += 13;
 }
+
+void Player::reduceGold(int gold) { m_gold -= gold; }
 
 //There are functions getting access to things of player
 BackPack*  Player::openBackPack () const { return m_backpack ; }
 Equipment* Player::openEquipment() const { return m_equipment; }
-

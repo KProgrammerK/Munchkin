@@ -10,12 +10,15 @@ Artifact::Artifact(std::string name, int buff, char sign) :
 const Artifact Artifact::artifactsTable[static_cast<int>(Artifact::ArtifactType::MAX_ARTIFACT_TYPE)]
 {
 	//  Name          BF   S
-    {"Sword Guds"   , 10, 'D'},
-    {"Sword Fire"   , 20, 'D'},
-    {"Viking Helmet", 10, 'A'},
-    {"Fire Helmet"  , 20, 'A'},
-    {"Cut Dragon"   , 10, 'H'},
-    {"Fire armor"   , 20, 'H'}
+    {"Viking helmet", 5 , 'A'},
+    {"Fire helmet"  , 7 , 'A'},
+    {"Iron crown"   , 10, 'A'},
+    {"Wooden armor" , 5,  'H'},
+    {"Iron armor"   , 7,  'H'},
+    {"Cut dragon"   , 10, 'H'},
+    {"Sword fire"   , 6 , 'D'},
+    {"Sword Guds"   , 9,  'D'},
+    {"Scepter Loki" , 13, 'D'}
 };
 
 //Functions getters informations
@@ -25,13 +28,13 @@ char        Artifact::getSign() const { return m_sign; }
 
 std::ostream& operator<<(std::ostream& out, const Artifact& artifact)
 {
-	out << "Name:" << artifact.getName() << " \t Buff:" << artifact.getBuff() << "  Sign:" << artifact.getSign();
+	out << "Name:" << artifact.getName() << " \t Buff:" << artifact.getBuff() << " \t Sign:" << artifact.getSign();
 	return out;
 }
 
 void Artifact::printArtifact() const
 {
-	std::cout << "Name:" << getName() << " Buff:" << getBuff() << "  Sign:" << getSign() << '\n';
+	std::cout << "Name:" << getName() << "   Buff:" << getBuff() << "   Sign:" << getSign();
 }
 
 Artifact Artifact::getRandomArtifact()

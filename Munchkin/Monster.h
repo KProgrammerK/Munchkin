@@ -10,9 +10,17 @@ public:
 
 	enum class MonsterType
 	{
-		DRAGON,
+		MURLOC,
+		LIQUID_HORROR,
+		REAPER,
+		OGRE,
+		SCORPION,
+		WITCH,
 		SKELETON,
 		TROLL,
+		CORE_MUSHROOM,
+		PYRAMID_HEAD,
+		DRAGON_GOD,
 		MAX_MONSTER_TYPE
 	};
 

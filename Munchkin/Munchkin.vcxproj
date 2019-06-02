@@ -131,6 +131,8 @@
     <ClCompile Include="Munchkin.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
+    <ClCompile Include="SecretArtifact.cpp" />
+    <ClCompile Include="SecretShop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artifact.h" />
@@ -140,6 +142,8 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RandomNumber.h" />
+    <ClInclude Include="SecretArtifact.h" />
+    <ClInclude Include="SecretShop.h" />
     <ClInclude Include="TypeReturn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
