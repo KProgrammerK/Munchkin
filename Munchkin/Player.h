@@ -20,9 +20,6 @@ public:
 	int getKillings() const;
 	bool isWon() const;
 
-	void reduceGold(int);
-	void addEquipment(Artifact);
-
 	/* Player improves when artifact adds
 	** When artifacts swap at first player debuff on current artifact
 	** and after player improves on new artifact
@@ -40,13 +37,17 @@ public:
 	void debuffPlayer(Artifact&);
 	//↑ This is were functions for work with improve player ↑
 
-	//This is functions to get answer player when cell of equipment is busy 
+	//This is function uses to get answer player when cell of equipment is busy 
 	//(permission to swap artifacts)
 	char warning(std::string);
 
 	// When player kills monster
-	void levelUp();
 	void addGold(int);
+	void levelUp();
+
+	void reduceGold(int);
+
+	void addEquipment(Artifact);
 
 	//There are functions getting access to things of player
 	BackPack*  openBackPack () const;

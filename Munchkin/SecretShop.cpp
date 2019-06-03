@@ -33,6 +33,9 @@ void SecretShop::emptyShop()
 	for (int artifact = 0; artifact < static_cast<int>(SecretArtifact::SecretArtifactType::MAX_SECRET_TYPE); ++artifact)
 		*m_shop[artifact] = SecretArtifact{};
 }
+
+int SecretShop::getCell() const { return m_cell_shop; }
+
 void SecretShop::deleteArtifact(int index)
 {
 	if (index < 0 || index >= m_cell_shop)
@@ -75,8 +78,6 @@ SecretArtifact SecretShop::getArtifact(int index)
 	deleteArtifact(index);
 	return artifact;
 }
-
-int SecretShop::getCell() const { return m_cell_shop; }
 
 SecretArtifact& SecretShop::getArtifact(int index, bool) 
 {

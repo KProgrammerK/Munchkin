@@ -25,7 +25,7 @@ public:
 		MAX_ARTIFACT_TYPE
 	};
 
-	//          Name       B     S
+	//          Name             B       S
 	Artifact(std::string = "", int = 0, char = ' ');
 
 	// This is lookup table about artifacts

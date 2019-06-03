@@ -254,11 +254,12 @@ ResultGame playGame(Player* player)
 
 int main()
 {
-	//-----This is isn't interesting----------
+    //-----This is isn't interesting----------
     srand(static_cast<unsigned int>(time(0)));
 	rand();
 	std::string name = getName();
 	//----------------------------------------
+
 	auto player = std::make_unique<Player>(name);
 
 	ResultGame resultGame = playGame(player.get());
@@ -269,7 +270,6 @@ int main()
 		std::cout << "You're Dead.\n";
 
 	std::cout << "Your result writes in file (MunchkinResult.txt)\n";
-	system("pause");
-
- 	return 0;
+	_getch();
+	return 0;
 }

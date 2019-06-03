@@ -1,7 +1,9 @@
+// Player use equipment to improve yourself 
 #ifndef EQUIPMENT_H
 #define EQUIPMENT_H
 
 #include "Artifact.h"
+#include "Constans.h"
 
 class Equipment
 {
@@ -24,6 +26,8 @@ public:
 	void addArtifact(EquipmentType,Artifact&);
 	void showEquipment() const;
 
+	// When happens swap artifacts and need 
+	// add artifact from equipment in backapck
 	Artifact& getArtifact(EquipmentType type) const;
 	
 private:

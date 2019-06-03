@@ -12,9 +12,14 @@ public:
 	void showShop () const;
 	void emptyShop();
 	int getCell() const;
-	//                        index
+	
+	// When  a secret artifact is purchased
+	// it deletes from secret shop
 	void deleteArtifact       (int);
+
+	// For transfer an artifact in backpack
 	SecretArtifact getArtifact(int);
+	// For get cost of the artifact
 	SecretArtifact& getArtifact(int,bool);
 
 private:

@@ -15,10 +15,10 @@ int          Creature::getArmor () const { return m_armor ; }
 int          Creature::getDamage() const { return m_damage; }
 int          Creature::getGold  () const { return m_gold  ; }
 
-// 1 unit armor blocks 0.25 unit damage
+// 1 unit armor blocks 0.50 unit damage
 void Creature::reduceHealth(int damage)
 {
-	int lockedDamage = getArmor() * 0.25;
+	int lockedDamage = getArmor() * 0.35;
 	int cleanDamage  = damage - lockedDamage;
 	m_health -= cleanDamage;
 }

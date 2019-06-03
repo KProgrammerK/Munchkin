@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Artifact.h" />
     <ClInclude Include="BackPack.h" />
+    <ClInclude Include="Constans.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="Monster.h" />

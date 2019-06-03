@@ -20,37 +20,6 @@ Player::~Player()
 	delete m_equipment;
 }
 
-char Player::warning(std::string item)
-{
-	std::cout << "You already have: " << item << "   ->   ";
-	if (item == "helmet")
-	{
-		openEquipment()->getArtifact(Equipment::EquipmentType::HEAD).printArtifact(); std::cout << '\n';
-	}
-	else if (item == "armor")
-	{
-		openEquipment()->getArtifact(Equipment::EquipmentType::BODY).printArtifact(); std::cout << '\n';
-	}
-	else if (item == "weapon")
-	{
-		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact(); std::cout << '\n';
-	}
-
-	char answer;
-	do
-	{
-		std::cout << "Do you want to swap them ?(y/n): ";
-		std::cin >> answer;
-
-		if (std::cin.fail())
-			std::cin.clear();
-		std::cin.ignore(32767, '\n');
-
-	} while (answer != 'y' && answer != 'n');
-
-	return answer;
-}
-
 void Player::printInformations() const
 {
 	Creature::printInformations();
@@ -88,6 +57,51 @@ void Player::debuffPlayer(Artifact& artifact)
 	case 'D': debuffDamage(artifact.getBuff()); break;
 	}
 }
+
+char Player::warning(std::string item)
+{
+	std::cout << "You already have: " << item << "   ->   ";
+	if (item == "helmet")
+	{
+		openEquipment()->getArtifact(Equipment::EquipmentType::HEAD).printArtifact(); std::cout << '\n';
+	}
+	else if (item == "armor")
+	{
+		openEquipment()->getArtifact(Equipment::EquipmentType::BODY).printArtifact(); std::cout << '\n';
+	}
+	else if (item == "weapon")
+	{
+		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact(); std::cout << '\n';
+	}
+
+	char answer;
+	do
+	{
+		std::cout << "Do you want to swap them ?(y/n): ";
+		std::cin >> answer;
+
+		if (std::cin.fail())
+			std::cin.clear();
+		std::cin.ignore(32767, '\n');
+
+	} while (answer != 'y' && answer != 'n');
+
+	return answer;
+}
+
+//When player kills monster
+void Player::addGold(int gold) { m_gold += gold; }
+void Player::levelUp()
+{
+	++m_armor;
+	++m_damage;
+	++m_health;
+	++m_killings;
+	++m_level;
+}
+
+void Player::reduceGold(int gold) { m_gold -= gold; }
+
 void Player::addEquipment(Artifact artifact)
 {
 	if (artifact.getSign() == 'D')
@@ -162,20 +176,6 @@ void Player::addEquipment(Artifact artifact)
 		}
 	}
 }
-
-//When player kills monster
-void Player::addGold(int gold) { m_gold += gold; }
-void Player::levelUp()
-{
-	++m_armor;
-	++m_damage;
-	++m_health;
-	++m_killings;
-	++m_level;
-	m_gold += 13;
-}
-
-void Player::reduceGold(int gold) { m_gold -= gold; }
 
 //There are functions getting access to things of player
 BackPack*  Player::openBackPack () const { return m_backpack ; }
