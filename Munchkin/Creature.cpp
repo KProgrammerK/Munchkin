@@ -18,8 +18,13 @@ int          Creature::getGold  () const { return m_gold  ; }
 // 1 unit armor blocks 0.50 unit damage
 void Creature::reduceHealth(int damage)
 {
-	int lockedDamage = getArmor() * 0.35;
+	int lockedDamage = getArmor() * 0.50;
 	int cleanDamage  = damage - lockedDamage;
+	if (cleanDamage < 0)
+	{
+		std::cout << "This damage isn't enough to break through this armor!\n";
+		return;
+	}
 	m_health -= cleanDamage;
 }
 

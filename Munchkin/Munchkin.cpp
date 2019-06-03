@@ -83,13 +83,15 @@ void playerAttack(Player* player, Monster* monster)
 {
 	std::cout << "You attack monster:" << player->getDamage() << '\n';
 	monster->reduceHealth(player->getDamage());
+	monster->printInformations(); std::cout << "\n\n";
 }
 
 void monsterAttack(Player* player, Monster* monster)
 {
 	std::cout << "Monster attacks you:" << monster->getDamage() << '\n';
 	player->reduceHealth(monster->getDamage());
-
+	player->printInformations();
+	std::cout << '\n';
 }
 
 bool enoughGold(Player* player, const SecretArtifact& artifact) { return (player->getGold() >= artifact.getCost()) ? true : false; }

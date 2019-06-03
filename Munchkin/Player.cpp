@@ -95,7 +95,6 @@ void Player::levelUp()
 {
 	++m_armor;
 	++m_damage;
-	++m_health;
 	++m_killings;
 	++m_level;
 }
