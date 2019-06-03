@@ -1,2 +1,0 @@
-Name:Kirill  Level:6  Gold:61  Killings:5
-Name:Kirill  Level:1  Gold:0  Killings:0
