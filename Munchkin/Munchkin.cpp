@@ -29,7 +29,7 @@ void deleteUselessArtifacts(Player* player)
 	std::cout << "Your backpack is overflow!\n";
 	std::cout << "You need to delete useless aritfacts.\n";
 	std::cout << "Enter " << MunchkinConst::clearAllArtifacts << " to delete all the artifacts.\n";
-	std::cout << "Enter " << MunchkinConst::stopNumeral << " to break to return.\n\n";
+	std::cout << "Enter " << MunchkinConst::stopNumeral << " to return.\n\n";
 
 	player->openBackPack()->showBackPack();
 	int artifact{ 0 };
