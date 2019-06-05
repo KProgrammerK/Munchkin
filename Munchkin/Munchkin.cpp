@@ -2,83 +2,66 @@
 #include "Monster.h"
 #include "TypeReturn.h"
 #include "SecretShop.h"
+#include "Validation.h"
 
 #include <conio.h>
 #include <cstdlib>
 #include <memory>
 
-std::string getName()
-{
-	std::string name;
-	std::cout << "Enter your name:";
-	getline(std::cin, name);
-	return name;
-}
-
-std::string getAnswer()
-{
-	std::string answer;
-	do
-	{
-		getline(std::cin, answer);
-	} while (answer != "y" && answer != "n");
-	return answer;
-}
-
-std::string getAnswer(bool)
-{
-	std::string answer;
-	do
-	{
-		std::cout << "Your action:";
-		getline(std::cin, answer);
-	} while (answer != "run" && answer != "fight");
-	return answer;
-}
 void equipPlayer(Player* player)
 {
 	player->openBackPack()->showBackPack();
-	std::cout << "Enter 69 to return.\n";
-	std::cout << "\n Choose artifact: ";
+	std::cout << "Enter " << MunchkinConst::stopNumeral << " to return.\n";
+	int index = ValidationInput::validateIndex(player->openBackPack()->getSize(),false);
 
-	int index;
-	std::cin >> index;
-	std::cin.ignore(32767, '\n');
-	if (index == 69)
+	if (index == MunchkinConst::stopNumeral)
 		return;
+
 	player->addEquipment(player->openBackPack()->getArtifact(index));
 	std::cout << '\n';
+	player->printInformations();
+	_getch();
+	system("cls");
 }
 
 void deleteUselessArtifacts(Player* player)
 {
 	std::cout << "Your backpack is overflow!\n";
 	std::cout << "You need to delete useless aritfacts.\n";
-	std::cout << "Enter 11 to delete all the artifacts.\n";
-	std::cout << "Enter 69 to break to delete.\n\n";
+	std::cout << "Enter " << MunchkinConst::clearAllArtifacts << " to delete all the artifacts.\n";
+	std::cout << "Enter " << MunchkinConst::stopNumeral << " to break to return.\n\n";
+
 	player->openBackPack()->showBackPack();
 	int artifact{ 0 };
 	std::vector<int> uselessArtifacts;
-	for (int cell = 0; cell < 10; ++cell)
+	uselessArtifacts.reserve(MunchkinConst::max_size_backpack);
+
+	for (int cell = 0; cell < MunchkinConst::max_size_backpack; ++cell)
 	{
-		std::cout << "Choose artifact:";
-		std::cin >> artifact;
-		std::cin.ignore(32767, '\n');
-		if (artifact == 69)
-			break;
+		artifact = ValidationInput::validateIndex(player->openBackPack()->getSize(),true);
+
+		if (artifact == MunchkinConst::stopNumeral)
+		{
+			if (uselessArtifacts.size() <= 0)
+			{
+				std::cout << "Please delete at least one artifact\n";
+				--cell;
+				continue;
+			}
+			else
+				break;
+		}
+		
 		uselessArtifacts.push_back(artifact);
-		if (artifact == 11)
+
+		if (artifact == MunchkinConst::clearAllArtifacts)
 			break;
 	}
-	if (uselessArtifacts.size() == 0)
-	{
-		system("cls");
-		std::cout << "You have not entered a single artifact!\n";
-		deleteUselessArtifacts(player);
-	}
+
 	player->openBackPack()->deleteUselessArtifacts(uselessArtifacts);
 	system("cls");
 }
+
 void playerAttack(Player* player, Monster* monster)
 {
 	std::cout << "You attack monster:" << player->getDamage() << '\n';
@@ -112,27 +95,18 @@ void shopSecret(Player* player, SecretShop* secretShop)
 	secretShop->showShop();
 	std::cout << "You have " << player->getGold() << " golds \n\n";
 	std::cout << "Choose artifacts which you want to buy.\n";
-	std::cout << "Enter 69 to return.\n";
+	std::cout << "Enter " << MunchkinConst::stopNumeral << " to return.\n";
 
 	int artifact{ 0 };
 
 	for (int buy = 0; buy < static_cast<int>(SecretArtifact::SecretArtifactType::MAX_SECRET_TYPE); ++buy)
 	{
-		std::cout << "Enter:";
-		std::cin >> artifact;
-		std::cin.ignore(32767, '\n');
+		artifact = ValidationInput::validateIndex(secretShop->getCell(), false);
 
-		if (artifact == 69)
+		if (artifact == MunchkinConst::stopNumeral)
 			return;
 
-		if (artifact > secretShop->getCell())
-		{
-			std::cout << "You entered isn't correct artifact!\n";
-			--buy;
-			continue;
-		}
-
-		if (player->openBackPack()->getSize() < 10)
+		if (player->openBackPack()->getSize() < MunchkinConst::max_size_backpack)
 		{
 			if (enoughGold(player, secretShop->getArtifact(artifact, true)))
 			{
@@ -159,6 +133,7 @@ void shopSecret(Player* player, SecretShop* secretShop)
 			std::cout << "You have " << player->getGold() << " golds \n\n";
 		}
 	}
+	system("cls");
 }
 
 ResultGame playGame(Player* player)
@@ -172,24 +147,25 @@ ResultGame playGame(Player* player)
 			auto shop = std::make_unique<SecretShop>();
 			shopSecret(player, shop.get());
 			equipPlayer(player);
-			player->printInformations();
-			_getch();
-			system("cls");
 		}
 
 		//------------------Drop artifact and equip Player------------------
-		if (player->openBackPack()->getSize() == 10)
+		if (player->openBackPack()->getSize() == MunchkinConst::max_size_backpack)
 		{
 			do
 			{
 				deleteUselessArtifacts(player);
-			} while (player->openBackPack()->getSize() >= 10);
+			} while (player->openBackPack()->getSize() >= MunchkinConst::max_size_backpack);
 		}
+
 		std::cout << "Artifact drops in your backpack.\n";
 		player->openBackPack()->addArtifact(Artifact::getRandomArtifact());
-		std::cout << "Do you want to equip?(y/n):";
-		std::string answer = getAnswer();
-		if (answer == "y")
+			
+		std::cout << "Do you want to equip?(yes/no)\n";
+		std::string answer = ValidationInput::getAnswer();
+		system("cls");
+		
+		if (answer == "yes")
 			equipPlayer(player);
 		//------------------------------------------------------------------
 
@@ -211,7 +187,7 @@ ResultGame playGame(Player* player)
 
 		do
 		{
-			std::string action = getAnswer(true);
+			std::string action = ValidationInput::getAction();
 
 			if (action == "run")
 			{
@@ -259,7 +235,7 @@ int main()
     //-----This is isn't interesting----------
     srand(static_cast<unsigned int>(time(0)));
 	rand();
-	std::string name = getName();
+	std::string name = ValidationInput::getName();
 	//----------------------------------------
 
 	auto player = std::make_unique<Player>(name);
@@ -273,5 +249,6 @@ int main()
 
 	std::cout << "Your result writes in file (MunchkinResult.txt)\n";
 	_getch();
+
 	return 0;
 }

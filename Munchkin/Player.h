@@ -39,7 +39,7 @@ public:
 
 	//This is function uses to get answer player when cell of equipment is busy 
 	//(permission to swap artifacts)
-	char warning(std::string);
+	std::string warning(const std::string&);
 
 	// When player kills monster
 	void addGold(int);

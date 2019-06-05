@@ -10,11 +10,11 @@ const Creature Monster::monstersTable[static_cast<int>(Monster::MonsterType::MAX
     {"Liquid horror",  14,   4,   3,   9   },
     {"Reaper",         25,   0,   3,   19  },
     {"Ogre",           20,   5,   5,   30  },
-    {"Scorpion",       5,    35,  2,   25  },
+    {"Scorpion",       5,    35,  15,   25  },
     {"Witch",          5,    0,   13,  60  },
     {"Skeleton",       5,    0,   2,   6   },
     {"Troll",          19,   15,  10,  70  },
-    {"Core Mushroom",  0,    0,   5,   0   },
+    {"Core Mushroom",  0,    0,   19,   0   },
     {"Pyramid Head",   69,   69,  69,  690 },
     {"Dragon God" ,    100,  100, 50,  999 }
 };

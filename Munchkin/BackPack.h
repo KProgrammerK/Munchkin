@@ -9,6 +9,7 @@
 
 #include "Artifact.h"
 #include "Constans.h"
+#include "Templates.h"
 
 #include <vector>
 #include <algorithm>
@@ -29,11 +30,10 @@ public:
 
     // Without change m_cell_backpack
 	// Reset values of cells of backpack
-	void emptyBackPack(bool);
+	void makeEmpty();
 
 	// When artifact gets from backpack 
     // it deletes right away so return by value
-	void deleteArtifact(int);
 	Artifact getArtifact(int);
 
 	// When backpack is overflow

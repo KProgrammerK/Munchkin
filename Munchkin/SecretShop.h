@@ -2,6 +2,7 @@
 #define SECRETSHOP_H
 
 #include "SecretArtifact.h"
+#include "Templates.h"
 
 class SecretShop
 {
@@ -15,8 +16,6 @@ public:
 	
 	// When  a secret artifact is purchased
 	// it deletes from secret shop
-	void deleteArtifact       (int);
-
 	// For transfer an artifact in backpack
 	SecretArtifact getArtifact(int);
 	// For get cost of the artifact

@@ -20,12 +20,16 @@ void Creature::reduceHealth(int damage)
 {
 	int lockedDamage = getArmor() * 0.50;
 	int cleanDamage  = damage - lockedDamage;
-	if (cleanDamage < 0)
+	if (cleanDamage <= 0)
 	{
 		std::cout << "This damage isn't enough to break through this armor!\n";
 		return;
 	}
+
 	m_health -= cleanDamage;
+
+	if (m_health < 0)
+		m_health = 0;
 }
 
 // If health of creature <= 0 return true

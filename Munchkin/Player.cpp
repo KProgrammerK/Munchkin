@@ -28,7 +28,7 @@ void Player::printInformations() const
 
 int  Player::getLevel   () const { return m_level;       }
 int  Player::getKillings() const { return m_killings;    }
-bool Player::isWon      () const { return m_level >= 20; }
+bool Player::isWon      () const { return m_level >= MunchkinConst::maxLevelPlayer; }
 
 void  Player::buffArmor   (int value) { m_armor += value ; }
 void  Player::buffHealth  (int value) { m_health += value; }
@@ -58,7 +58,7 @@ void Player::debuffPlayer(Artifact& artifact)
 	}
 }
 
-char Player::warning(std::string item)
+std::string Player::warning(const std::string& item)
 {
 	std::cout << "You already have: " << item << "   ->   ";
 	if (item == "helmet")
@@ -74,17 +74,12 @@ char Player::warning(std::string item)
 		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact(); std::cout << '\n';
 	}
 
-	char answer;
+	std::string answer;
 	do
 	{
-		std::cout << "Do you want to swap them ?(y/n): ";
-		std::cin >> answer;
-
-		if (std::cin.fail())
-			std::cin.clear();
-		std::cin.ignore(32767, '\n');
-
-	} while (answer != 'y' && answer != 'n');
+		std::cout << "Do you want to swap?(yes/no):";
+		getline(std::cin, answer);
+	} while (answer != "yes" && answer != "no");
 
 	return answer;
 }
@@ -103,6 +98,9 @@ void Player::reduceGold(int gold) { m_gold -= gold; }
 
 void Player::addEquipment(Artifact artifact)
 {
+	// Access to swap artifacts
+	std::string answer;
+
 	if (artifact.getSign() == 'D')
 	{
 		// If cell is free that add artifact else WARNING
@@ -114,8 +112,8 @@ void Player::addEquipment(Artifact artifact)
 		}
 		else
 		{
-			char answer = warning("weapon");
-			if (answer == 'y')
+			answer = warning("weapon");
+			if (answer == "yes")
 			{
 				debuffPlayer(openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON));
 				openBackPack()->addArtifact(openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON));
@@ -138,8 +136,8 @@ void Player::addEquipment(Artifact artifact)
 		}
 		else
 		{
-			char answer = warning("helmet");
-			if (answer == 'y')
+			answer = warning("helmet");
+			if (answer == "yes")
 			{
 				debuffPlayer(openEquipment()->getArtifact(Equipment::EquipmentType::HEAD));
 				openBackPack()->addArtifact(openEquipment()->getArtifact(Equipment::EquipmentType::HEAD));
@@ -162,8 +160,8 @@ void Player::addEquipment(Artifact artifact)
 		}
 		else
 		{
-			char answer = warning("armor");
-			if (answer == 'y')
+		    answer = warning("armor");
+			if (answer == "yes")
 			{
 				debuffPlayer(openEquipment()->getArtifact(Equipment::EquipmentType::BODY));
 				openBackPack()->addArtifact(openEquipment()->getArtifact(Equipment::EquipmentType::BODY));
