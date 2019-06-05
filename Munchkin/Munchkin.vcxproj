@@ -133,6 +133,7 @@
     <ClCompile Include="RandomNumber.cpp" />
     <ClCompile Include="SecretArtifact.cpp" />
     <ClCompile Include="SecretShop.cpp" />
+    <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Artifact.h" />

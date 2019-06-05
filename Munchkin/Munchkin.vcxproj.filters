@@ -45,6 +45,9 @@
     <ClCompile Include="SecretShop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Validation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Creature.h">

@@ -74,12 +74,7 @@ std::string Player::warning(const std::string& item)
 		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact(); std::cout << '\n';
 	}
 
-	std::string answer;
-	do
-	{
-		std::cout << "Do you want to swap?(yes/no):";
-		getline(std::cin, answer);
-	} while (answer != "yes" && answer != "no");
+	std::string answer = ValidationInput::getAnswer();
 
 	return answer;
 }

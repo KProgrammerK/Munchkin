@@ -4,6 +4,7 @@
 #include "BackPack.h"
 #include "Equipment.h"
 #include "Creature.h"
+#include "Validation.h"
 
 #include <fstream>
 

@@ -233,6 +233,7 @@ ResultGame playGame(Player* player)
 int main()
 {
     //-----This is isn't interesting----------
+	std::cout << "Munchkin v1.0.\n";
     srand(static_cast<unsigned int>(time(0)));
 	rand();
 	std::string name = ValidationInput::getName();
