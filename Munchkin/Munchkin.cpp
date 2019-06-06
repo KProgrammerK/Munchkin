@@ -180,6 +180,8 @@ ResultGame playGame(Player* player)
 			std::cout << "It's Core Mushroom!\n";
 			std::cout << "It hits damage:" << monster->getDamage() << " and deads!\n";
 			player->reduceHealth(monster->getDamage());
+			if (player->isDead())
+				return ResultGame::LOSE;
 			_getch();
 			system("cls");
 			continue;
