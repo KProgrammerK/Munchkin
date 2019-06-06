@@ -178,7 +178,7 @@ ResultGame playGame(Player* player)
 		if (monster->getName() == "Core Mushroom")
 		{
 			std::cout << "It's Core Mushroom!\n";
-			std::cout << "It hits damage:" << monster->getDamage() << " and deads!\n";
+			std::cout << "It hits damage: " << monster->getDamage() << " and deads!\n";
 			player->reduceHealth(monster->getDamage());
 			if (player->isDead())
 				return ResultGame::LOSE;

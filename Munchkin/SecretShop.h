@@ -12,7 +12,7 @@ public:
 	~SecretShop();
 
 	void showShop() const;
-	
+	int  getCell()  const;
 	// When  a secret artifact is purchased
 	// it deletes from secret shop
 	// For transfer an artifact in backpack

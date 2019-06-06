@@ -28,6 +28,8 @@ void SecretShop::showShop() const
 	}
 }
 
+int SecretShop::getCell() const { return m_cell_shop; }
+
 SecretArtifact SecretShop::getArtifact(int index)
 {
 	--index;
