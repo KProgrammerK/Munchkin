@@ -13,7 +13,7 @@ Player::Player(const std::string& name) :
 Player::~Player()
 {
 	std::ofstream file{ "MunchkinResult.txt",std::ios::app };
-	file << "Name:" << getName() << "  Level:" << getLevel() << "  Gold:" << getGold() << "  Killings:" << getKillings() << '\n';
+	file << "Name:" << getName() << "  Gold:" << getGold() << "  Damage:" << getDamage() << "  Armor:" << getArmor() << "  Health:" << getHealth() << "  Killings:" << getKillings() << "  Level:" << getLevel() << '\n';
 	file.close();
 
 	delete m_backpack;
