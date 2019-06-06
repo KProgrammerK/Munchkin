@@ -12,14 +12,6 @@ Equipment::~Equipment() { delete[] m_equipment; }
 
 bool Equipment::busyCell(Equipment::EquipmentType type) const { return (m_equipment[static_cast<int>(type)]->getName() == "") ? true : false; }
 
-void Equipment::addCell()
-{
-	if (m_cell_equipment == MunchkinConst::max_size_equipment)
-		return;
-
-	++m_cell_equipment;
-}
-
 void Equipment::addArtifact(Equipment::EquipmentType type, Artifact& artifact) { *m_equipment[static_cast<int>(type)] = artifact; }
 
 void Equipment::showEquipment() const

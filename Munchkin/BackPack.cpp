@@ -27,12 +27,6 @@ void BackPack::emptyBackPack()
 	m_cell_backpack = 0;
 }
 
-void BackPack::makeEmpty()
-{
-	for (int cell = 0; cell < MunchkinConst::max_size_backpack; ++cell)
-		*m_backpack[cell] = Artifact{};
-}
-
 Artifact BackPack::getArtifact(int index)
 {
 	--index;

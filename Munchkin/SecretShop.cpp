@@ -28,14 +28,6 @@ void SecretShop::showShop() const
 	}
 }
 
-void SecretShop::emptyShop()
-{
-	for (int artifact = 0; artifact < static_cast<int>(SecretArtifact::SecretArtifactType::MAX_SECRET_TYPE); ++artifact)
-		*m_shop[artifact] = SecretArtifact{};
-}
-
-int SecretShop::getCell() const { return m_cell_shop; }
-
 SecretArtifact SecretShop::getArtifact(int index)
 {
 	--index;

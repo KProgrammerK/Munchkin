@@ -17,6 +17,7 @@
 class BackPack
 {
 public:
+
 	BackPack();
 	~BackPack();
 
@@ -24,13 +25,8 @@ public:
 	// Functions for interactions with backpack
 	void addArtifact(const Artifact&);
 
-	// With    change m_cell_backpack(reduce)
 	// When artifact deletes from backpack
 	void emptyBackPack();
-
-    // Without change m_cell_backpack
-	// Reset values of cells of backpack
-	void makeEmpty();
 
 	// When artifact gets from backpack 
     // it deletes right away so return by value

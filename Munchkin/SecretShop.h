@@ -7,12 +7,11 @@
 class SecretShop
 {
 public:
+
 	SecretShop();
 	~SecretShop();
 
-	void showShop () const;
-	void emptyShop();
-	int getCell() const;
+	void showShop() const;
 	
 	// When  a secret artifact is purchased
 	// it deletes from secret shop

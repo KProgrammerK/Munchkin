@@ -21,7 +21,6 @@ public:
 
 	//Functions for work with cell of equipment
 	bool busyCell(EquipmentType) const;
-	void addCell();
 
 	void addArtifact(EquipmentType,Artifact&);
 	void showEquipment() const;

@@ -1,7 +1,7 @@
 #include "Artifact.h"
 
 //Standard constructor
-Artifact::Artifact(std::string name, int buff, char sign) :
+Artifact::Artifact(const std::string& name, int buff, char sign) :
 	m_name{ name },
 	m_buff{ buff },
 	m_sign{ sign }{}

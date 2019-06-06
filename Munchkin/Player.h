@@ -12,7 +12,7 @@ class Player : public Creature
 {
 public:
 	//         Name
-	Player(std::string);
+	Player(const std::string&);
 	~Player();
 
 	//There are functions getting informations about palyer

@@ -1,7 +1,7 @@
 #include "Creature.h"
 
 // Standard constructor
-Creature::Creature(std::string name, int health,int armor, int damage, int gold) :
+Creature::Creature(const std::string& name, int health, int armor, int damage, int gold) :
 	m_name  { name   },
 	m_health{ health },
 	m_armor { armor  },

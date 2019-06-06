@@ -17,7 +17,4 @@ const SecretArtifact SecretArtifact::tableSecretArtifacts[static_cast<int>(Secre
 
 int SecretArtifact::getCost() const { return m_cost; }
 
-void SecretArtifact::printArtifact() const
-{
-	std::cout << "Name:" << getName() << " \t Buff:" << getBuff() << " \t Sign:" << getSign() << " \t Cost:" << m_cost;
-}
+void SecretArtifact::printArtifact() const { std::cout << "Name:" << getName() << " \t Buff:" << getBuff() << " \t Sign:" << getSign() << " \t Cost:" << m_cost; }

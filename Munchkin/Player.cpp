@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::string name) :
+Player::Player(const std::string& name) :
 	//       Name   H   A  D  G
 	Creature{ name, 10, 0, 1, 0 },
 	m_level{ 1 },
@@ -101,7 +101,6 @@ void Player::addEquipment(Artifact artifact)
 		// If cell is free that add artifact else WARNING
 		if (openEquipment()->busyCell(Equipment::EquipmentType::WEAPON))
 		{
-			openEquipment()->addCell();
 			openEquipment()->addArtifact(Equipment::EquipmentType::WEAPON, artifact);
 			buffPlayer(artifact);
 		}
@@ -125,7 +124,6 @@ void Player::addEquipment(Artifact artifact)
 		// If cell is free that add artifact else WARNING
 		if (openEquipment()->busyCell(Equipment::EquipmentType::HEAD))
 		{
-			openEquipment()->addCell();
 			openEquipment()->addArtifact(Equipment::EquipmentType::HEAD, artifact);
 			buffPlayer(artifact);
 		}
@@ -149,7 +147,6 @@ void Player::addEquipment(Artifact artifact)
 		// If cell is free that add artifact else WARNING
 		if (openEquipment()->busyCell(Equipment::EquipmentType::BODY))
 		{
-			openEquipment()->addCell();
 			openEquipment()->addArtifact(Equipment::EquipmentType::BODY, artifact);
 			buffPlayer(artifact);
 		}

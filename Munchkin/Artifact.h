@@ -26,7 +26,7 @@ public:
 	};
 
 	//          Name             B       S
-	Artifact(std::string = "", int = 0, char = ' ');
+	Artifact(const std::string& = "", int = 0, char = ' ');
 
 	// This is lookup table about artifacts
 	static const Artifact artifactsTable[];
