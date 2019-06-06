@@ -1,4 +1,0 @@
-Name:Kirill  Level:2  Gold:6  Killings:1
-Name:Kirill 
-Name:Kirill  Gold:0  Damage:1  Armor:0 Health:10  Killings:0  Level:1
-Name:Kirill  Gold:0  Damage:1  Armor:0  Health:10  Killings:0  Level:1
