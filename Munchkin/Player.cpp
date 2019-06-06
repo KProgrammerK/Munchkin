@@ -63,17 +63,17 @@ std::string Player::warning(const std::string& item)
 	std::cout << "You already have: " << item << "   ->   ";
 	if (item == "helmet")
 	{
-		openEquipment()->getArtifact(Equipment::EquipmentType::HEAD).printArtifact(); std::cout << '\n';
+		openEquipment()->getArtifact(Equipment::EquipmentType::HEAD).printArtifact();
 	}
 	else if (item == "armor")
 	{
-		openEquipment()->getArtifact(Equipment::EquipmentType::BODY).printArtifact(); std::cout << '\n';
+		openEquipment()->getArtifact(Equipment::EquipmentType::BODY).printArtifact();
 	}
 	else if (item == "weapon")
 	{
-		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact(); std::cout << '\n';
+		openEquipment()->getArtifact(Equipment::EquipmentType::WEAPON).printArtifact();
 	}
-
+	std::cout << "\t Do you want swap them?(yes/no)\n";
 	std::string answer = ValidationInput::getAnswer();
 
 	return answer;
