@@ -49,6 +49,12 @@ int ValidationInput::validateIndex(int maxIndex, bool clrAll)
 		std::cout << "Choose artifact:";
 		getline(std::cin, string);
 
+		if (string.length() > 2)
+		{
+			std::cout << "You entered incorrect index!\n";
+			continue;
+		}
+
 		if (static_cast<int>(atof(string.c_str())) == MunchkinConst::stopNumeral)
 			return MunchkinConst::stopNumeral;
 
@@ -74,12 +80,6 @@ int ValidationInput::validateIndex(int maxIndex, bool clrAll)
 			(isalpha(string[0]) || ispunct(string[0])) ||
 			(isalpha(string[1]) || ispunct(string[1])) ||
 			(string[0] == '0')))
-		{
-			std::cout << "You entered incorrect index!\n";
-			continue;
-		}
-
-		if (string.length() > 2)
 		{
 			std::cout << "You entered incorrect index!\n";
 			continue;

@@ -47,7 +47,6 @@ public:
 	void levelUp();
 
 	void reduceGold(int);
-
 	void addEquipment(Artifact);
 
 	//There are functions getting access to things of player

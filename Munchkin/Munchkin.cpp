@@ -242,7 +242,7 @@ int main()
 	//----------------------------------------
 
 	auto player = std::make_unique<Player>(name);
-
+	
 	ResultGame resultGame = playGame(player.get());
 
 	if (resultGame == ResultGame::WIN)
