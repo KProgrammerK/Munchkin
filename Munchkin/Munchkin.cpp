@@ -138,14 +138,19 @@ void shopSecret(Player* player, SecretShop* secretShop)
 
 ResultGame playGame(Player* player)
 {
+	//This flag needs to player can buy secrets artifacts in secret shop once
+	bool hasBeen{ false };
+
 	//-------------------- Game continues while level of player < 20--------
 	while (!player->isWon())
 	{
         // When player will have 10 level , he will get access to Secret Shop
-		if (player->getLevel() == 10)
+		if (player->getLevel() == 10 && hasBeen == false)
 		{
+			hasBeen = true;
 			auto shop = std::make_unique<SecretShop>();
 			shopSecret(player, shop.get());
+			if (player->openBackPack()->getSize() > 0)
 			equipPlayer(player);
 		}
 
@@ -242,10 +247,10 @@ int main()
 	//----------------------------------------
 
 	auto player = std::make_unique<Player>(name);
-	
+
 	ResultGame resultGame = playGame(player.get());
 
-	if (resultGame == ResultGame::WIN)
+	if (resultGame == ResultGame::WIN) 
 		std::cout << "You're Win!\n";
 	else
 		std::cout << "You're Dead.\n";

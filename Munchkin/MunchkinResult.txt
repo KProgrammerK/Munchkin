@@ -1,0 +1,4 @@
+Name:Kirill  Gold:0  Damage:1  Armor:0  Health:0  Killings:0  Level:1
+Name:Kirill  Gold:0  Damage:1  Armor:20  Health:0  Killings:0  Level:1
+Name:Kirill  Gold:0  Damage:1  Armor:20  Health:0  Killings:0  Level:1
+Name:69  Gold:0  Damage:1  Armor:15  Health:0  Killings:0  Level:10

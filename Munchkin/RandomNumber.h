@@ -4,6 +4,7 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <boost/random.hpp>
 
 class RandomNumber
 {
