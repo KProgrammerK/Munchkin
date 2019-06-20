@@ -3,7 +3,7 @@
 Player::Player(const std::string& name) :
 	//       Name   H   A  D  G
 	Creature{ name, 10, 0, 1, 0 },
-	m_level{ 10 },
+	m_level{ 1 },
 	m_killings{ 0 }
 {
 	m_backpack  = new BackPack;
